@@ -3,11 +3,11 @@
  * Plugin Name: Multiple Post Passwords
  * Plugin URI: https://www.andreasmuench.de/wordpress/
  * Description: Easily setup multiple passwords for single protected posts
- * Version: 1.1.2
+ * Version: 1.1.3
  * Author: Andreas Münch
  * Author URI: https://www.andreasmuench.de/wordpress/
  * Requires at least: 4.7.0
- * Tested up to: 6.4.2
+ * Tested up to: 6.8
  * Text Domain: multiple-post-passwords
  * Domain Path: /languages/
  * License: GPL2+
@@ -58,7 +58,7 @@ class Multiple_Post_Passwords {
      */
     public function __construct() {
         // Define constants.
-         define( 'MPP_VERSION', '1.1.0' );
+         define( 'MPP_VERSION', '1.1.3' );
          define( 'MPP_PLUGIN_DIR', untrailingslashit( plugin_dir_path( __FILE__ ) ) );
 
         $this->basename = plugin_basename(__FILE__);

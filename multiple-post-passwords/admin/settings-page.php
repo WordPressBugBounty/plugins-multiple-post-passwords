@@ -12,9 +12,24 @@ class Settings_Page
 
     public function __construct($args = null)
     {
+        $this->args = $args;
+
+        add_action('init', [$this, 'init']);
+
+
+
+    }
+
+    /**
+     * Initialise settings
+     * @return void
+     */
+    public function init()
+    {
+
         $this->args = wp_parse_args(
 
-            $args,
+            $this->args,
             [
                 'slug' => 'multiple-post-passwords-settings',
                 'settings_prefix' => 'mpp_',
@@ -25,8 +40,12 @@ class Settings_Page
 
         $this->settings = $this->args['settings'];
 
-        // Initialise settings
-        add_action('admin_menu', array($this, 'init'));
+        if (empty($this->settings)){
+            $this->settings = $this->get_settings_fields();
+        }
+
+//        // Initialise settings
+//        add_action('admin_menu', array($this, 'init'));
 
         // Add settings page to menu
         add_action('admin_menu', array($this, 'add_menu_item'));
@@ -35,18 +54,10 @@ class Settings_Page
         add_action('admin_init', array($this, 'register_settings'));
 
         // Add settings link to plugins page
-        add_filter('plugin_action_links_'.$args['plugin_basename'], array($this, 'add_settings_link'));
-    }
+        add_filter('plugin_action_links_'.$this->args['plugin_basename'], array($this, 'add_settings_link'));
 
-    /**
-     * Initialise settings
-     * @return void
-     */
-    public function init()
-    {
-        if (empty($this->settings)){
-            $this->settings = $this->get_settings_fields();
-        }
+
+
     }
 
     /**

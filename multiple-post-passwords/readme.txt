@@ -3,9 +3,9 @@ Contributors: andreasmuench
 Donate link: https://www.andreasmuench.de/wordpress/
 Tags: password, protected, page, post, multiple, security
 Requires at least: 4.7.0
-Tested up to: 6.4.2
+Tested up to: 6.8
 Requires PHP: 5.6
-Stable tag: trunk
+Stable tag: 1.1.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -71,6 +71,10 @@ Just go to the support forums and kindly ask for it, then we´ll see what we can
 
 
 == Changelog ==
+
+= 1.1.3 =
+* fix issues with numeral passwords in alternative mode
+* fix warning for calling _load_textdomain_just_in_time too early
 
 = 1.1.2 =
 * fix: improve output escaping in settings

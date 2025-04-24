@@ -87,7 +87,7 @@ class AlternativePasswordCheck
 
         $user_password =  wp_unslash($_SESSION['mpp_alternative_password']);
 
-        return ($post_password == $user_password);
+        return ($post_password === $user_password);
 
     }
 
