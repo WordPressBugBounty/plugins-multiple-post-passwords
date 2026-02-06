@@ -85,6 +85,10 @@ class AlternativePasswordCheck
      */
     static function check_password($post_password, $post_id){
 
+        if(empty($_SESSION['mpp_alternative_password'])) {
+            return false;
+        }
+
         $user_password =  wp_unslash($_SESSION['mpp_alternative_password']);
 
         return ($post_password === $user_password);
